@@ -3,6 +3,7 @@ session_start();
 define('ADMIN', 1);
 include '../apps/showmodal.php';
 include '../apps/autoload.php';
+require_once "../admin/resource/phpexcel/Classes/PHPExcel.php";
 $user = new Apps_Control_User();
 if (isset($_POST['submit'])) {
     if (isset($_POST['user']))
@@ -187,7 +188,7 @@ if (isset($_SESSION['per']) && $_SESSION['per'] == 1) {
         </div>
     </nav>
     <div class="container">
-        <p class="text-right"><span class="fa fa-history"></span>&nbsp;<a href="watch.php" target="_blank">
+        <p class="text-right"><span class="fa fa-history"></span>&nbsp;<a href="watch.php?file=log.txt" target="_blank">
                 Debug </a> - <a href="#" class="text-info"
                                 data-toggle='modal' <?php echo "onclick='editValue(\"" . $dataUser['user_id'] . "\",\"" . $dataUser['user_name'] . "\",\"" . $dataUser['user_fullname'] . "\",\"" . $dataUser['user_permission'] . "\")'"; ?>
                                 data-target='#editMedal'>Đổi mật khẩu</a> - <span

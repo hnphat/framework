@@ -1,6 +1,7 @@
 <?php
 define("ALLOW",1);
 include 'apps/autoload.php';
+require_once "./admin/resource/phpexcel/Classes/PHPExcel.php";
 $unity = new Apps_Class_Unity();
 $topic = new Apps_Control_Topic();
 //----------------- Dữ liệu tin tức -----------------------------

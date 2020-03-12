@@ -143,6 +143,18 @@ class Apps_Class_Upload extends Apps_Class_Database
         return $this->fileName;
     }
 
+    public function uploadNormal($name){
+        if ($this->checkFile()) {
+            $pathUpload = $this->upload_path . $name;
+            $result = move_uploaded_file($this->getTempFile(), $pathUpload);
+            if ($result) {
+                Apps_Class_Log::writeLogSuccess("upload đã lưu file vào ổ cứng upload.php");
+            } else {
+                Apps_Class_Log::writeLogFail("upload file không thành công");
+            }
+        }
+    }
+    
     public function upload()
     {
         if ($this->checkFile()) {
